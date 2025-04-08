@@ -2,6 +2,14 @@
 
 `YuvImage.compressToJpeg()` produces JPEGs with ringing (or similar) artifacts when the image width is not divisible
 by 16.
+
+![image-8x16.png](image-8x16.png)
+
+![image-16x16.png](image-16x16.png)
+
+This behavior occurs with any resolution where the width is not divisible by 16, including the commonly used 1080x1920.
+The issue was originally discovered using YUV images from CameraX.
+
 The underlying library, `libjpeg-turbo`, is expected to handle such cases by padding the image with black pixels.
 You can find evidence of this behavior in
 the [source code](https://github.com/libjpeg-turbo/libjpeg-turbo/blob/2a0c86278249e7a3c3429caff24c06a50048d772/src/jccoefct.c#L182)
@@ -13,10 +21,8 @@ Nevertheless, the final JPEG still shows ringing (or similar) artifacts.
 
 I also added a test case where the dummy black pixels are included as part of the original image itself. In that case,
 no artifacts are present.
-This serves as further proof that the issue lies in how the internal algorithm handles image widths that are not
-divisible by 16.
 
 ## How to Test
 
 Run the `AndroidTest` to reproduce the issue. The resulting JPEGs can be found on the device at the following path:
-`Pictures/TestDebug`.
+`Pictures/TestDebug`. Also, you can find these images in [jpegs](jpegs) folder in the project.
