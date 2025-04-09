@@ -24,5 +24,12 @@ no artifacts are present.
 
 ## How to Test
 
-Run the `AndroidTest` to reproduce the issue. The resulting JPEGs can be found on the device at the following path:
-`Pictures/TestDebug`. Also, you can find these images in [jpegs](jpegs) folder in the project.
+The relevant test code is located under `app/src/androidTest`. To execute these tests, please follow these steps in 
+Android Studio:
+
+- Navigate to the directory `app/src/androidTest`.
+- Right-click on the `androidTest` folder.
+- Select "Run 'All Tests'" from the context menu. 
+
+The resulting JPEGs can be found on the device at the following path: `Pictures/TestDebug`. Also, you can find these 
+images in [jpegs](jpegs) folder in the project.
