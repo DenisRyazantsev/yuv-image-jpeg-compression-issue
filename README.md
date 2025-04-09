@@ -24,12 +24,15 @@ no artifacts are present.
 
 ## How to Test
 
-The relevant test code is located under `app/src/androidTest`. To execute these tests, please follow these steps in 
+The relevant test code is located under `app/src/androidTest`. To execute these tests, please follow these steps in
 Android Studio:
 
 - Navigate to the directory `app/src/androidTest`.
 - Right-click on the `androidTest` folder.
-- Select "Run 'All Tests'" from the context menu. 
+- Select "Run 'All Tests'" from the context menu.
 
-The resulting JPEGs can be found on the device at the following path: `Pictures/TestDebug`. Also, you can find these 
+The resulting JPEGs can be found on the device at the following path: `Pictures/TestDebug`. Also, you can find these
 images in [jpegs](jpegs) folder in the project.
+
+If you need the APK, you can run the command `./gradlew :app:assembleAndroidTest` in the terminal and find the APK at
+the path `app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk`.
